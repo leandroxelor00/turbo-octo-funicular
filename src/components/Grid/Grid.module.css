@@ -1,11 +1,31 @@
+.layout {
+  display: grid;
+  grid-template-columns: 50px auto; /* 50px para a coluna de remoção de linhas, auto para a grade */
+}
+
+.columnButtons,
 .grid {
   display: grid;
+  /* Herda a variável --columns definida no pai .layout */
   grid-template-columns: repeat(var(--columns), 50px);
-  border: 1px solid;
+}
+
+.rowButtons {
+  display: grid;
+  grid-auto-rows: 50px; /* Garante que cada botão de linha tenha exatamente 50px de altura */
 }
 
 .cell {
   width: 50px;
   height: 50px;
-  border: 1px solid;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Impede que a borda quebre o alinhamento dos 50px */
+}
+
+/* Opcional: Garante que os botões de fechar ocupem o quadrado de 50x50 perfeitamente */
+.columnButtons button,
+.rowButtons button {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
 }
